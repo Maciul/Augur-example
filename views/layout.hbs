@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script>
+        function callbackName( json ) {  
+            $(function() {
+              $('#augurIDs').append( '<br>' + 'Device ID: ' + augur.device.ID + '<br>' + 'Customer ID: ' + augur.consumer.UID  );
+            });
+        console.log( augur.device.ID );
+    }
+    </script>
+    <script
+        async
+        id="augur.js"
+        data-callback="callbackName" 
+        src="//cdn.augur.io/augur.min.js"
+        data-warpspeed="{{warp}}">
+    </script>
+    <title>"Augur Example"</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    {{{body}}}
+  </body>
+</html>
