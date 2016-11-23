@@ -7,4 +7,12 @@ router.get('/', function( req, res, next ) {
   res.render('index', { warp: process.env.WARP });
 });
 
+router.post('/', function( req, res, next ) {
+  console.log(req.body); 
+});
+
+
+
+router.get
+
 module.exports = router;
