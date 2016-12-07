@@ -4,6 +4,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script>
         function callbackName( json ) {  
+          console.log(json);
             $(function() {
               $('#augurIDs').append( '<br>' + 'Device ID: ' + augur.device.ID + '<br>' + 'Customer ID: ' + augur.consumer.UID  );
             });
@@ -16,7 +17,7 @@
         data-callback="callbackName" 
         src="//cdn.augur.io/augur.min.js"
         data-warpspeed="{{warp}}"
-        data-sendto="POST::http://localhost:3000">
+        data-sendto="POST::http://localhost:8008">
     </script>
     <title>"Augur Example"</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
