@@ -11,6 +11,7 @@
     "debug": "~2.2.0",
     "dotenv": "^2.0.0",
     "express": "~4.14.0",
+    "fingerprintjs": "^0.5.3",
     "hbs": "~4.0.1",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",

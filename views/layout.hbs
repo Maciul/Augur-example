@@ -2,14 +2,17 @@
 <html>
   <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script>
+  <script src="/javascripts/fingerprint.js"></script>
+  <script src="/javascripts/fingerprint2.js"></script>
+
+    <script>
         function callbackName( json ) {  
           console.log(json);
             $(function() {
-              $('#augurIDs').append( '<br>' + 'Device ID: ' + augur.device.ID + '<br>' + 'Customer ID: ' + augur.consumer.UID  );
-            });
-        console.log( augur.device.ID );
-    }
+              $('#augurIDs').append( '<br>' + '<h3>Device ID:</h3> ' + augur.device.ID + '<br>' + '<h3>Customer ID:</h3> ' + augur.consumer.UID  );
+            }); 
+        console.log( augur.device.ID ); 
+        }   
     </script>
     <script
         async
@@ -17,8 +20,29 @@
         data-callback="callbackName" 
         src="//cdn.augur.io/augur.min.js"
         data-warpspeed="{{warp}}"
-        data-sendto="POST::http://localhost:8008">
+        data-sendto="POST::http://testing123.augur.io/">
     </script>
+    <script> 
+        var fingerprint = new Fingerprint().get();
+        var fingerprint2 = new Fingerprint({canvas: true}).get();
+        var fingerprint3 = new Fingerprint({screen_resolution: true}).get();
+      $(function() {
+        $('#fingerprintjs').append( '<br>' + '<h3>Device ID:</h3> ' + fingerprint );
+      });
+    </script>
+    <script> 
+        var fingerprintjs2 = new Fingerprint2();
+
+      fingerprintjs2.get(function(result) {
+        if(typeof window.console !== "undefined") {
+        }
+        $(function() {
+         $('#fingerprintjs2').append( '<br>' + '<h3>Device ID:</h3> ' + result );
+        });
+      });
+    </script>
+
+    
     <title>"Augur Example"</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
@@ -26,3 +50,22 @@
     {{{body}}}
   </body>
 </html>
+
+<!--  CODE THAT CAN BE USED WITH FAST CALLBACK TO MAKE SURE IT DOES NOT RUN TWICE.
+          let augurCalled = false;
+
+          function callbackName(json) {
+            console.log("WHOOOO" + JSON.stringify(json));
+            if ( json ) {
+              if (!augurCalled) {
+                $(function() {
+                  $('#augurIDs').append( '<br>' + 'Device ID: ' + augur.device.ID + '<br>' + 'Customer ID: ' + augur.consumer.UID  );
+                }); 
+        
+                //RUN YOUR CODE
+                augurCalled = true;
+              } else {
+                //do nothing
+              }
+            }
+          } -->

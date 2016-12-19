@@ -3,7 +3,9 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var dotenv = require('dotenv').config()
+var dotenv = require('dotenv').config();
+var fingerprintjs = require('fingerprintjs');
+var fingerprintjs2 = require('fingerprintjs2');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
