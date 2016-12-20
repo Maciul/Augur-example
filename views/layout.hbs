@@ -4,12 +4,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/javascripts/fingerprint.js"></script>
   <script src="/javascripts/fingerprint2.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
     <script>
         function callbackName( json ) {  
           console.log(json);
             $(function() {
-              $('#augurIDs').append( '<br>' + '<h3>Device ID:</h3> ' + augur.device.ID + '<br>' + '<h3>Customer ID:</h3> ' + augur.consumer.UID  );
+              $('#augurIDs').append( '<p>Device ID:</p> ' + '<p>' + augur.device.ID + '<p>' + '<p>Customer ID:</p> ' + '<p>' + augur.consumer.UID + '<p>'  );
             }); 
         console.log( augur.device.ID ); 
         }   
@@ -27,7 +28,7 @@
         var fingerprint2 = new Fingerprint({canvas: true}).get();
         var fingerprint3 = new Fingerprint({screen_resolution: true}).get();
       $(function() {
-        $('#fingerprintjs').append( '<br>' + '<h3>Device ID:</h3> ' + fingerprint );
+        $('#fingerprintjs').append('<p>Device ID:</p> ' + '<p>' + fingerprint + '<p>' );
       });
     </script>
     <script> 
@@ -37,7 +38,7 @@
         if(typeof window.console !== "undefined") {
         }
         $(function() {
-         $('#fingerprintjs2').append( '<br>' + '<h3>Device ID:</h3> ' + result );
+         $('#fingerprintjs2').append('<p>Device ID:</p>' + '<p>' + result + '<p>' );
         });
       });
     </script>
