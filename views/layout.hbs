@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/javascripts/fingerprint.js"></script>
@@ -7,48 +8,19 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
-    <script>
-        function callbackName( json ) {  
-          console.log(json);
-            $(function() {
-              $('#augurIDs').append( '<p>Device ID:</p> ' + '<p>' + augur.device.ID + '<p>' + '<p>Customer ID:</p> ' + '<p>' + augur.consumer.UID + '<p>'  );
-            }); 
-        console.log( augur.device.ID ); 
-        }   
-    </script>
-    <script
-        async
-        id="augur.js"
-        data-callback="callbackName" 
-        src="//cdn.augur.io/augur.min.js"
-        data-warpspeed="{{warp}}"
-        data-sendto="POST::http://testing123.augur.io/">
-    </script>
-    <script> 
-        var fingerprint = new Fingerprint().get();
-        var fingerprint2 = new Fingerprint({canvas: true}).get();
-        var fingerprint3 = new Fingerprint({screen_resolution: true}).get();
-      $(function() {
-        $('#fingerprintjs').append('<p>Device ID:</p> ' + '<p>' + fingerprint + '<p>' );
-      });
-    </script>
-    <script> 
-        var fingerprintjs2 = new Fingerprint2();
-
-      fingerprintjs2.get(function(result) {
-        if (typeof window.console !== 'undefined') {
-
-        $(function() {
-         $('#fingerprintjs2').append('<p>Device ID:</p>' + '<p>' + result + '<p>' );
-        });
-        }
-      });
-    </script>
-
-    
     <title>"Augur Example"</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+
+  <header class=top> 
+    <div>
+      <img src="https://gust-production.s3.amazonaws.com/uploads/startup/panoramic_image/562313/logo_20_2B_20wordmark.png" alt="augurLogo">
+    </div>
+    <div class="example">
+      <h1> ( Example Test ) </h1>
+    </div>
+  </header>
+
   <body>
     {{{body}}}
   </body>
