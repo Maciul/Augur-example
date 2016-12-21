@@ -5,6 +5,7 @@
   <script src="/javascripts/fingerprint.js"></script>
   <script src="/javascripts/fingerprint2.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <script>
         function callbackName( json ) {  
@@ -35,11 +36,12 @@
         var fingerprintjs2 = new Fingerprint2();
 
       fingerprintjs2.get(function(result) {
-        if(typeof window.console !== "undefined") {
-        }
+        if (typeof window.console !== "undefined") {
+
         $(function() {
          $('#fingerprintjs2').append('<p>Device ID:</p>' + '<p>' + result + '<p>' );
         });
+        }
       });
     </script>
 
