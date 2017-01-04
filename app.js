@@ -1,6 +1,16 @@
+var fs = require('fs');
+var http = require('http');
+
+//HTTPS SETUP 
+// var https = require('https');
+// var privateKey  = fs.readFileSync('./development-certs/key.pem', 'utf8');
+// var certificate = fs.readFileSync('./development-certs/cert.pem', 'utf8');
+// var credentials = {key: privateKey, cert: certificate, passphrase: 'bacon'};
+
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var dotenv = require('dotenv').config();
@@ -12,6 +22,14 @@ var users = require('./routes/users');
 var pixel = require('./routes/pixel');
 
 var app = express();
+
+var httpServer = http.createServer(app);
+
+// var httpsServer = https.createServer(credentials, app);
+
+
+httpServer.listen(8008);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -26,8 +26,10 @@
   </body>
 </html>
 
-<!--  CODE THAT CAN BE USED WITH FAST CALLBACK TO MAKE SURE IT DOES NOT RUN TWICE.
-          let augurCalled = false;
+ <!-- CODE THAT CAN BE USED WITH FAST CALLBACK TO MAKE SURE IT DOES NOT RUN TWICE.
+                  let augurCalled = false;
+                  var augurDevice = '';
+                
 
           function callbackName(json) {
             console.log("WHOOOO" + JSON.stringify(json));
@@ -36,10 +38,11 @@
                 $(function() {
                   $('#augurIDs').append( '<br>' + 'Device ID: ' + augur.device.ID + '<br>' + 'Customer ID: ' + augur.consumer.UID  );
                 }); 
-        
                 //RUN YOUR CODE
                 augurCalled = true;
+                                     console.log(augurDevice);
               } else {
+                console.log('someething');
                 //do nothing
               }
             }
