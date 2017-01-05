@@ -23,12 +23,11 @@ var pixel = require('./routes/pixel');
 
 var app = express();
 
-var httpServer = http.createServer(app);
+// var httpServer = http.createServer(app);
 
-// var httpsServer = https.createServer(credentials, app);
+// // var httpsServer = https.createServer(credentials, app);
 
-
-httpServer.listen(8008);
+// httpServer.listen(8008);
 
 
 // view engine setup
@@ -56,7 +55,7 @@ var rawBodySaver = function (req, res, buf, encoding) {
   if (buf && buf.length) {
     req.rawBody = buf.toString(encoding || 'utf8');
   }
-}
+};
 
 app.use(bodyParser.json({ verify: rawBodySaver }));
 app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
