@@ -10,6 +10,7 @@ var http = require('http');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+var cors = require('cors');
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -23,12 +24,14 @@ var pixel = require('./routes/pixel');
 
 var app = express();
 
+var corsOptions = {
+  origin: 'http://www.123.com',
+  optionsSucccessStatus: 200
+}
+
 // var httpServer = http.createServer(app);
-
 // // var httpsServer = https.createServer(credentials, app);
-
 // httpServer.listen(8008);
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -50,6 +53,7 @@ app.use(logger('dev'));
 //         next();
 //     });
 // });
+app.use(cors(corsOptions));
 
 var rawBodySaver = function (req, res, buf, encoding) {
   if (buf && buf.length) {
