@@ -1,12 +1,14 @@
     <script>
+  
         function callbackName( json ) {  
           console.log(json);
             $(function() {
               $('#augurIDs').append( '<p>Device ID:</p> ' + '<p>' + augur.device.ID + '<p>' + '<p>Customer ID:</p> ' + '<p>' + augur.consumer.UID + '<p>'  );
             }); 
-        console.log( augur.device.ID ); 
+            AugurData = json;
     }
-    </script>
+    </script> 
+
     <script
        async
         id="augur.js"
@@ -16,6 +18,7 @@
         data-sendto="POST::http://testing123.augur.io/"
         data-silent="1">
     </script>
+    
     <script> 
         var fingerprint = new Fingerprint().get();
         var fingerprint2 = new Fingerprint({canvas: true}).get();
@@ -24,6 +27,7 @@
         $('#fingerprintjs').append('<p>Device ID:</p> ' + '<p>' + fingerprint + '<p>' );
       });
     </script>
+    
     <script> 
         var fingerprintjs2 = new Fingerprint2();
 
@@ -67,3 +71,6 @@
 <section class='bottom'>
 <h1> Cross Browser, Cross Device... Recognition.  </h1>
 </section>
+<div id="log"></div>
+
+

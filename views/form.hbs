@@ -1,0 +1,51 @@
+    <script>
+    var AugurData;
+        function callbackName( json ) {  
+          console.log(json);
+            $(function() {
+              $('#augurIDs').append( '<p>Device ID:</p> ' + '<p>' + augur.device.ID + '<p>' + '<p>Customer ID:</p> ' + '<p>' + augur.consumer.UID + '<p>'  );
+            }); 
+            AugurData = json;
+    }
+    </script> 
+    <!-- If someone needs to include a username ID - it can be done like this -->
+    
+    <script type="text/javascript">
+    $(document).on('click','button',function(e) {
+      e.preventDefault();
+      var username = $('#username').val();
+      console.log(username, AugurData);
+      var newUsername = JSON.stringify({username});
+      $.post('http://testing123.augur.io/form', { username: newUsername }) ;
+    });
+    </script>
+
+    <script
+       async
+        id="augur.js"
+        data-callback="callbackName" 
+        src="//cdn.augur.io/augur.min.js"
+        data-warpspeed="{{warp}}"
+        data-sendto="POST::http://testing123.augur.io/"
+        data-silent="1">
+    </script>
+
+<section>
+	<article>
+		<div class='titleSection'>
+			<h3> Augur Technology </h3>
+		</div >
+		<div id="augurIDs" class='idSection'>  
+		<!-- Augur DID and UID goes here-->
+		</div> 
+	</article>
+
+<form id='userForm'>
+  <div class='insideForm'>
+    <label for='username'> username </label>
+    <input type="text" name='username' id='username'>
+    <button type=submit value=Submit> Submit </button>
+  </div>
+</form>
+
+</section>

@@ -21,13 +21,10 @@ var fingerprintjs2 = require('fingerprintjs2');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var pixel = require('./routes/pixel');
+var form = require('./routes/form');
+
 
 var app = express();
-
-var corsOptions = {
-  origin: 'http://www.123.com',
-  optionsSucccessStatus: 200
-}
 
 // var httpServer = http.createServer(app);
 // // var httpsServer = https.createServer(credentials, app);
@@ -53,7 +50,6 @@ app.use(logger('dev'));
 //         next();
 //     });
 // });
-app.use(cors(corsOptions));
 
 var rawBodySaver = function (req, res, buf, encoding) {
   if (buf && buf.length) {
@@ -71,6 +67,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/pixel', pixel);
+app.use('/form', form);
 
 
 // catch 404 and forward to error handler

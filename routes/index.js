@@ -15,17 +15,16 @@ var colors = require('colors');
 //   }
 // };
 
-console.log(cors);
 /* GET home page. */
 router.get('/', function( req, res) {
   	res.render('index', { warp: process.env.WARP });
 });
 
 router.post('/', function( req, res ) {
-	console.log(cors);
 	console.log(' ---- +++ HEADERS +++ ----'.cyan);
 	console.log( req.headers );
 	console.log('---- JSON FILE ---'.cyan);
+	console.log(req).cyan;
 	if (req.body.json) {
 	console.log(req.body.json);		
 	} else {
